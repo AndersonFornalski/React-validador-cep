@@ -6,7 +6,7 @@ import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import produtoDetail from './components/produtos/produtoDetail';
 import { Provider } from 'react-redux';
 
- const store = require("./components/Reducers").inicio();
+ const store = require("./components/Reducers").init();
 
 export class App extends React.Component {
 

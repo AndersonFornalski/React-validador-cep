@@ -1,6 +1,8 @@
 import React from "react"
 import ProdutoCard from "./produtoCard"
-import { connect } from "react-redux"
+import { connect } from "react-redux";
+
+import * as actions from "../Actions/indexActions";
 
  class ProdutoLista extends React.Component{
   
@@ -15,6 +17,10 @@ import { connect } from "react-redux"
             )
         })
     }
+//AQUI FAZ A LISTAGEM COM O REDUCER E ACTIONS
+    componentWillMount(){
+        this.props.dispatch(actions.fetchProdutos());
+    }
 
     render(){
         return(
@@ -26,7 +32,7 @@ import { connect } from "react-redux"
 }
 function mapStateToProps(state){
     return{
-        listaProdutos: state.listaProdutos
+        listaProdutos: state.listaProdutos.data
     }
 }
  
