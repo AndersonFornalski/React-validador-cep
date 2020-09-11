@@ -1,3 +1,6 @@
+import { FETCH_PRODUTOS, FETCH_PRODUTOS_ID } from "./types"
+
+
 const  produtos = [{
     id:"1",
     name:"Torsilax 30cp",
@@ -36,7 +39,16 @@ const  produtos = [{
 
 export const fetchProdutos =()=>{
     return{
-        type:"FETCH_PRODUTOS",
+        type: FETCH_PRODUTOS,
         produtos
+    }
+}
+
+export const fetchProdutosId =(produtoId)=>{
+    const produto = produtos.find((produto) => produto.id === produtoId);
+
+    return{
+        type: FETCH_PRODUTOS_ID,
+        produto       
     }
 }
