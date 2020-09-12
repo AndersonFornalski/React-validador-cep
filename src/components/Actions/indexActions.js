@@ -1,6 +1,10 @@
-import { FETCH_PRODUTOS, FETCH_PRODUTOS_ID } from "./types"
+import { FETCH_PRODUTOS,
+         FETCH_PRODUTOS_ID,
+         FETCH_PRODUTOS_SUCCESS,
+         FETCH_PRODUTOS_BY_ID_SUCCESS } from "./types"
+import axios from "axios";
 
-
+/*
 const  produtos = [{
     id:"1",
     name:"Torsilax 30cp",
@@ -36,19 +40,46 @@ const  produtos = [{
     categoria:"Ético",
     imagem:"http://via.placeholder.com/350x250"
 }]
+*/
 
-export const fetchProdutos =()=>{
+const fetchProdutosSuccess = (produtos)=>{
     return{
-        type: FETCH_PRODUTOS,
+        type: FETCH_PRODUTOS_SUCCESS,
         produtos
     }
 }
 
-export const fetchProdutosId =(produtoId)=>{
-    const produto = produtos.find((produto) => produto.id === produtoId);
-
+const fetchProdutoByIdInit = ()=>{
     return{
-        type: FETCH_PRODUTOS_ID,
-        produto       
+        type: FETCH_PRODUTOS_ID
+    }
+}
+
+const fetchProdutoByIdSuccess =(produto)=>{
+    return{
+        type: FETCH_PRODUTOS_BY_ID_SUCCESS,
+        produto
+    }
+}
+
+
+export const fetchProdutos =()=>{
+    return (dispatch) => {
+        axios.get("http://localhost:3010/produto")
+        .then(res => res.data)
+        .then(produtos =>{
+            dispatch(fetchProdutosSuccess(produtos))
+        })
+    }
+}
+
+export const fetchProdutosId =(produtoId)=>{
+    return function (dispatch){
+        dispatch(fetchProdutoByIdInit());
+        axios.get(`http://localhost:3010/produto/${produtoId}`)
+        .then(res => res.data)
+        .then(prod =>{
+            dispatch(fetchProdutoByIdSuccess(prod))
+        })
     }
 }

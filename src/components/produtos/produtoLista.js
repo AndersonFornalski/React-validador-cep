@@ -10,7 +10,7 @@ import * as actions from "../Actions/indexActions";
         return this.props.listaProdutos.map((lista, index)=>{
             console.log(lista)
             return(
-                <ProdutoCard key={index}
+                <ProdutoCard key={index}  
                              colName="card"
                              produto={lista}>
                 </ProdutoCard>

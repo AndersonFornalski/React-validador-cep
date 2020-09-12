@@ -7,7 +7,7 @@ export default function ProdutoCard(props){
 
         return(
             <div className={props.colName}>
-                <Link to={`/produto/${prod.id}`}>
+                <Link to={`/produto/${prod._id}`}>
             <img src={prod.imagem} className="card-img-top"/>
                 <div className="card-body">
                     <h5 className="card-title">{prod.name}</h5>

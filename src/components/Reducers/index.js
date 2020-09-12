@@ -1,14 +1,17 @@
-import * as redux from "redux";
 import { produtoReducer, produtoReducerId } from "./produto-reducer";
+import thunk from "redux-thunk";
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 
 export const init = () =>{
 
-    const reducer = redux.combineReducers({
+    const reducer = combineReducers({
         listaProdutos: produtoReducer,
         produto: produtoReducerId
     })
 
-    const store = redux.createStore(reducer);
+    const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+    const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)));
 
     return store;    
 }
