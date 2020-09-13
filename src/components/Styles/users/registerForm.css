@@ -1,0 +1,13 @@
+.col-md-8{
+    text-align: center;
+    color: darkorange;
+    margin-top: 20px;
+}
+
+.botoes{
+    text-align: left;
+    margin-top: 10px;
+}
+.btn-primary{
+    margin-left: 20px;
+}

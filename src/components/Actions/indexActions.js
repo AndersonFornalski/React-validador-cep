@@ -83,3 +83,13 @@ export const fetchProdutosId =(produtoId)=>{
         })
     }
 }
+
+export const fetchDeleteProdutos =()=>{
+    return (dispatch) => {
+        axios.delete("http://localhost:3010/produto")
+        .then(res => res.data)
+        .then(produtos =>{
+            dispatch(fetchProdutosSuccess(produtos))
+        })
+    }
+}

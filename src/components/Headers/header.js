@@ -16,15 +16,15 @@ import React from "react";
                 </li>
             
                 <li className="nav-item">
-                  <a className="nav-link " href="/new">Rental</a>
+                  <a className="nav-link " href="/">Rental</a>
                 </li>
             
                 <li className="login">
-                  <a className="nav-link " href="#">Login</a>
+                  <a className="nav-link " href="/login">Login</a>
                 </li>
           
                 <li className="register">
-                  <a className="nav-link " href="#">Register</a>
+                  <a className="nav-link " href="/register">Register</a>
                 </li>
               </ul>
               <form className="form-inline my-2 my-lg-0">
