@@ -1,10 +1,12 @@
 import React from "react"
 import RegisterForm from "../Register/registerForm";
+import * as actions from "../Actions/indexActions";
 
 export default class Register extends React.Component{
 
     registerUser(userData){
-        debugger
+        console.log(userData);
+         actions.Register(userData)
     }
 
     render(){
