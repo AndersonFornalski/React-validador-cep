@@ -17,7 +17,7 @@ const renderField = ({input, label, type,className,
 )
 
 let RegisterForm = props => {
-  const { handleSubmit, pristine, submitting, reset, submitCb } = props
+  const { handleSubmit, pristine, submitting, submitCb, valid } = props
   return (
     <form  className="col-md-8" onSubmit={handleSubmit(submitCb)}>
         <Field 
@@ -53,7 +53,7 @@ let RegisterForm = props => {
         component={renderField} />
 
       <div className="botoes">
-        <button className="btn btn-info" disabled={ pristine || submitting} >Salvar</button>
+        <button className="btn btn-info" disabled={ !valid || pristine || submitting} >Salvar</button>
       </div>
     </form>
   )
@@ -65,13 +65,22 @@ const validate = values =>{
     if(values.nomeUsuario && values.nomeUsuario.length < 4){
         errors.nomeUsuario = "mínimo 4 caracteres!"
     }
+    if(!values.nomeUsuario){
+        errors.nomeUsuario ="digite um usuário!"
+    }
 
     if(!values.email){
         errors.email = "por favor, insira um e-mail "
     }
+    if(values.email && values.email.length < 10){
+        errors.email ="ex: seunome@gmail.com"
+    }
 
-    if(!values.senha){
-        errors.senha = "por favor digite a senha"
+    if(!values.senha ){
+        errors.senha = "senha deve conter no mínimo 6 caracteres! para maior segurança inclua letras, numeros, caracteres especiais, etc.."
+    }
+    if(values.senha && values.senha.length < 6 ){
+        errors.senha="mínimo 6 caracteres"
     }
 
     if(values.senha !== values.confirmacaoSenha){
