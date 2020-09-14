@@ -17,7 +17,7 @@ const renderField = ({input, label, type,className,
 )
 
 let RegisterForm = props => {
-  const { handleSubmit, pristine, submitting, submitCb, valid } = props
+  const { handleSubmit, pristine, submitting, submitCb, valid, erros } = props
   return (
     <form  className="col-md-8" onSubmit={handleSubmit(submitCb)}>
         <Field 
@@ -55,6 +55,12 @@ let RegisterForm = props => {
       <div className="botoes">
         <button className="btn btn-info" disabled={ !valid || pristine || submitting} >Salvar</button>
       </div>
+        {///mostra se ja existe usuario cadastrado
+          erros.length > 0 &&
+          <div className="alert alert-danger"> (:/)
+            {erros.map((erro, index) => <p key={index}>{erro.title} - {erro.detail}</p>)}
+          </div>
+        }
     </form>
   )
 }

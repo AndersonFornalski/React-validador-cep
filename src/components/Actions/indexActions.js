@@ -93,12 +93,3 @@ export const fetchDeleteProdutos =()=>{
         })
     }
 }
-
-////REGISTRO E AUTENTICAÇÃO DE USUARIOS///
-
-export const Register =(userData)=>{
-    return axios.post("http://localhost:3010/user/register", {...userData}).then(
-        res => res.data,
-        err => Promise.reject(err.response.data.errors)
-    )
-}
