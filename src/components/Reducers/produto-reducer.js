@@ -1,5 +1,4 @@
-import { FETCH_PRODUTOS,
-         FETCH_PRODUTOS_ID,
+import { FETCH_PRODUTOS_ID,
          FETCH_PRODUTOS_SUCCESS,
          FETCH_PRODUTOS_BY_ID_SUCCESS  } from "../Actions/types";
 

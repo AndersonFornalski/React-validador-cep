@@ -1,6 +1,26 @@
-import React from "react";
+import React, { Fragment } from "react";
+import { connect } from "react-redux";
+
+import "../Styles/Headers/headers.css";
+
 
  class Header extends React.Component{
+
+   LogoutAuthButton(){
+    const {isAuth} = this.props.auth
+
+    if(isAuth){
+      return <a className="nav-link" href="/register" onClick={this.props.encerrarSecao}>Logout</a>
+    }
+    return(
+      <Fragment>
+          <a className="nav-link login " href="/login">Login</a>
+          <a className="nav-link logout" href="/register">Register</a>
+      </Fragment>
+    )
+  }
+
+
     render(){
         return(
             <nav className="navbar navbar-expand-lg bg-light">
@@ -16,23 +36,19 @@ import React from "react";
                 </li>
             
                 <li className="nav-item">
-                  <a className="nav-link " href="/">Rental</a>
-                </li>
-            
-                <li className="login">
-                  <a className="nav-link " href="/login">Login</a>
-                </li>
+                  <a className="nav-link " href="/">Produtos</a>
+                </li>            
           
-                <li className="register">
-                  <a className="nav-link " href="/register">Register</a>
-                </li>
+               
               </ul>
               <form className="form-inline my-2 my-lg-0">
                 <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
                 <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
               </form>
-                
-               
+
+              <ul className="navbar-nav mr-auto">
+                      {this.LogoutAuthButton()}
+                </ul>
           
             </div>
             </nav>
@@ -41,4 +57,10 @@ import React from "react";
     }
 }
 
-export default Header;
+function mapStateToProps(state){
+    return{
+      auth: state.auth
+    }
+}
+
+export default connect(mapStateToProps)(Header);

@@ -1,5 +1,6 @@
 import React from "react"
 import RegisterForm from "../Register/registerForm";
+import { Redirect } from 'react-router-dom';
 import * as actions from "../Actions/userActions";
 
 export default class Register extends React.Component{
@@ -14,20 +15,24 @@ export default class Register extends React.Component{
     }
 
 
-    registerUser(userData){
+    registerUser(userData){ 
         console.log(userData);
          actions.Register(userData).then(
              (registrado)=>{
-                this.setState({registrado})
+                this.setState({redirect : true})
              },
              (err)=>{
-                 this.setState({err})
+                 this.setState({err}) 
              }
          )
     }
 
     render(){
-        const {err} = this.state
+        const {err, redirect} = this.state
+
+        if(redirect){
+            return<Redirect to={{pathname:"/login", state:{registradoComSucesso: true}}}></Redirect>
+        }    
         return(
             <div className="row">
                 <div className="col-md-6"> 

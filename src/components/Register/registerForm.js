@@ -1,9 +1,9 @@
 import React from 'react'
-import { Field, reduxForm, reset } from 'redux-form'
+import { Field, reduxForm} from 'redux-form'
 import "../Styles/users/registerForm.css"
 
 const renderField = ({input, label, type,className,
-    meta: { touched, error, warning}
+    meta: { touched, error}
 }) => (
  <div className="form-group">
    <label>{label}</label>
@@ -16,7 +16,7 @@ const renderField = ({input, label, type,className,
  </div>
 )
 
-let RegisterForm = props => {
+const RegisterForm = props => {
   const { handleSubmit, pristine, submitting, submitCb, valid, erros } = props
   return (
     <form  className="col-md-8" onSubmit={handleSubmit(submitCb)}>
@@ -98,10 +98,7 @@ const validate = values =>{
 
 
 
-RegisterForm = reduxForm({
-  // a unique name for the form
+ export default reduxForm({
   form: 'registerForm',
   validate
 })(RegisterForm)
-
-export default RegisterForm
