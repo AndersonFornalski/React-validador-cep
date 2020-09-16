@@ -8,6 +8,8 @@ import { Provider } from 'react-redux';
 import Login from './components/Login/login';
 import Register from './components/Register/Register';
 import * as actions from "./components/Actions/userActions";
+import { ProtectedRoute } from './components/Shared/ProtectedRoute/ProtectedRoute';
+import { LogeedInRoute } from './components/Shared/ProtectedRoute/LogeedInRoute';
 
  const store = require("./components/Reducers").init();
 
@@ -34,9 +36,9 @@ export class App extends React.Component {
         <Header encerrarSecao={this.logout}></Header>              
           <Route exact path="/" render={()=> <Redirect to="/produto"/>}></Route>
           <Route exact path="/produto" component={ProdutoLista}></Route>
-          <Route exact path="/produto/:id" component={produtoDetail}></Route>
+          <ProtectedRoute exact path="/produto/:id" component={produtoDetail}/>
           <Route exact path="/login" component={Login}></Route>
-          <Route exact path="/register" component={Register}></Route>
+          <LogeedInRoute exact path="/register" component={Register}/>
       </div>
       </BrowserRouter>
       </Provider>
