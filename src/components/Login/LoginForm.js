@@ -23,7 +23,6 @@ let LoginForm = props => {
        
         <Field 
         name="email" 
-        component="input" 
         type="email"  
         label="Email"
         className="form-control" 
@@ -31,7 +30,6 @@ let LoginForm = props => {
 
         <Field 
         name="senha" 
-        component="input" 
         type="password"  
         label="Senha"
         className="form-control" 

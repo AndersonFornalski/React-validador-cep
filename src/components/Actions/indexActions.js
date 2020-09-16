@@ -3,6 +3,7 @@ import {
          FETCH_PRODUTOS_SUCCESS,
          FETCH_PRODUTOS_BY_ID_SUCCESS } from "./types"
 import axios from "axios";
+import axiosService from "../Services/AxiosService/AxiosInstance";
 
 /*
 const  produtos = [{
@@ -42,6 +43,9 @@ const  produtos = [{
 }]
 */
 
+const axiosInstance = axiosService.getInstance();
+
+
 const fetchProdutosSuccess = (produtos)=>{
     return{
         type: FETCH_PRODUTOS_SUCCESS,
@@ -65,7 +69,7 @@ const fetchProdutoByIdSuccess =(produto)=>{
 
 export const fetchProdutos =()=>{
     return (dispatch) => {
-        axios.get("http://localhost:3010/produto")
+        axiosInstance.get("/produto")
         .then(res => res.data)
         .then(produtos =>{
             dispatch(fetchProdutosSuccess(produtos))

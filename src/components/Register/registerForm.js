@@ -22,7 +22,6 @@ const RegisterForm = props => {
     <form  className="col-md-8" onSubmit={handleSubmit(submitCb)}>
         <Field 
          name="nomeUsuario"
-         component="input" 
          type="text" 
          label="Usuário"
          className="form-control" 
@@ -30,7 +29,6 @@ const RegisterForm = props => {
 
         <Field 
         name="email" 
-        component="input" 
         type="email"  
         label="Email"
         className="form-control" 
@@ -38,7 +36,6 @@ const RegisterForm = props => {
 
         <Field 
         name="senha" 
-        component="input" 
         type="password"  
         label="Senha"
         className="form-control" 
@@ -46,7 +43,6 @@ const RegisterForm = props => {
 
         <Field 
         name="confirmacaoSenha" 
-        component="input" 
         type="password"  
         label="Confirmar Senha"
         className="form-control" 
