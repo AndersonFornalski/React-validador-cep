@@ -31,12 +31,29 @@ import "../Styles/Headers/headers.css";
             
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav mr-auto">
+
                 <li className="nav-item active">
                   <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Produtos
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/">Produtos</a>
+                    <a class="dropdown-item" href="/novo_produto">Cadastro de Produtos</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/manage">Atualizar Seus Produtos</a>
+                  </div>
                 </li>
             
                 <li className="nav-item">
                   <a className="nav-link " href="/">Produtos</a>
+                </li>
+
+                <li className="nav-item">
+                  <a className="nav-link " href="/manage">Update</a>
                 </li>            
           
                
@@ -45,6 +62,7 @@ import "../Styles/Headers/headers.css";
                 <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
                 <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
               </form>
+                    <a style={{"color":"purple"}} className="nav-link" > {this.props.auth.nomeUsuario}</a>
 
               <ul className="navbar-nav mr-auto">
                       {this.LogoutAuthButton()}

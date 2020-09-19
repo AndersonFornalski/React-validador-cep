@@ -33,6 +33,12 @@ class AuthService{
         const token = this.getToken();
       return (token && this.isValid(token)) ? true : false;
     }
+
+
+
+    getNomeUsuario(){
+        return this.decode(this.getToken()).nomeUsuario;
+    }
 }
 
 

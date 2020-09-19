@@ -88,6 +88,13 @@ export const fetchProdutosId =(produtoId)=>{
     }
 }
 
+export const salvandoProduto =(prodData)=>{
+    return axiosInstance.post("http://localhost:3010/produto/v2", {...prodData}).then(
+        res => res.data,
+        err => Promise.reject(err.response.data.errors)
+        )
+}
+
 export const fetchDeleteProdutos =()=>{
     return (dispatch) => {
         axios.delete("http://localhost:3010/produto")

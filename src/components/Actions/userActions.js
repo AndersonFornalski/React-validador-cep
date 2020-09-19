@@ -17,8 +17,10 @@ export const Register =(userD)=>{
 
 
 const loginSuccess = ()=>{
+    const nomeUsuario = authService.getNomeUsuario();
     return{
-        type: LOGIN_SUCCESS
+        type: LOGIN_SUCCESS,
+        nomeUsuario
     }
 }
 const loginFailure = (errors)=>{
