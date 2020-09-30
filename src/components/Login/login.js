@@ -28,17 +28,24 @@ class Login extends React.Component{
 
         return(
             <div className="row">
-                <div className="col-md-7"> 
+                <div className="col-md-6"> 
+                    <div  style={{"marginTop":"100px", "margin-left":"18px"}}> 
+                        <h1 style={{"color":"orange"}}><strong>Faça seu login</strong> </h1> 
+                    </div>
                         {
                             registradoComSucesso &&
                                 <div className="alert alert-success">
-                                    <p>registrado com sucesso por favor faça seu login </p>  
+                                    <p>Registrado com sucesso por favor faça seu login </p>  
                                 </div>
                         }
-                   <LoginForm submitCb={this.loginUsuario} erros={errors}/>
+                    <LoginForm submitCb={this.loginUsuario} erros={errors}/>
                 </div>
 
-                <div className="col">Imagem aqui</div>
+                <div className="col">
+                    <img src={process.env.PUBLIC_URL + "img/icon/capa1.png"} style={{"width":"100%"}} />
+                <br/>
+                <br/>
+                </div>
             </div>
         )
     }

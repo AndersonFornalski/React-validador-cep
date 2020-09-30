@@ -1,12 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../Styles/produtoManager/produtoManageCard.css"
+import { preferenciaData } from "../Shared/Helpers/helpers";
 
 export default class ProdutoManageCard extends React.Component{
     constructor(){
         super();
 
         this.state={
-            querExcluir: false
+            querExcluir: false 
         }
     }
 
@@ -18,40 +20,43 @@ export default class ProdutoManageCard extends React.Component{
         this.setState({querExcluir: false})
     }   
 
-      render(){      
+      render(){  
+          
+          const{ produto, excluiProduto, prodIndex } = this.props    
           const{ querExcluir } = this.state
         
-            return(                
-                <div className="col-md-4">
-                <div className="card text-center">
-                    <div className="card-block">
-                        <h4 className="card-title"> </h4>
-                        <Link className="btn btn-info" to="/produto"> vai até lista de produtos</Link>
-                        <button className="btn btn-primary">Bookings</button>
-                    </div>
-                    <div className="card-footer text-muted">
-                       Criado em: 
-                    <Link className="btn btn-info" to={{pathname: `/produto`, state: {isUpdate : true}}}>Edit</Link> 
-                        {
-                            !querExcluir &&
-                            <button onClick={()=> this.showDeleteMenu()} className="btn btn-danger">Delete</button>
-                        }
+            return(                      
+                
+                    <div className="cardUpdate">
+                     
+                        <div className="card text-center">
+                            <div className="card-body">
+                                <img src={produto.image} style={{"width":"200px"}} />
 
-                        {
-                            querExcluir &&
-                                <div className="text-delete"> 
-                                   tem certeza que deseja excluir?                            
-                                    <button  id="btn-yes"  className="btn btn-warning">Yes</button>
-                                    <button onClick={()=> this.closeDeleteMenu()} id="btn-not" className="btn btn-danger">No</button>
-                                </div>
-                        }
-                    
-                    
-                    }
-                    </div>
-    
-                </div>
-             </div>    
+                                <h4 className="card-title"> </h4>
+                                <Link className="btn linkLista" to="/produto"> Lista De Anúncios</Link>
+                            </div>
+                            <div className="card-footer text-muted">
+                            <div>Criado em: {preferenciaData(produto.startAt)} </div>
+                            <div>{produto.name}</div>
+                            <Link className="btn editar" to={{pathname:`/produto/${produto._id}`, state: {isUpdate : true}}}>Editar</Link> 
+                                {
+                                    !querExcluir &&
+                                    <button onClick={()=> this.showDeleteMenu()} className="btn excluir">Excluir</button>
+                                }
+
+                                {
+                                    querExcluir &&
+                                        <div className="text-delete"> 
+                                        tem certeza que deseja excluir?                            
+                                            <button onClick={()=>{excluiProduto(produto._id, prodIndex)}} id="btn-yes"  className="btn yes">Sim</button>
+                                            <button onClick={()=> this.closeDeleteMenu()} id="btn-not" className="btn not">Não</button>
+                                        </div>
+                                }                  
+                            </div>    
+                        </div>
+                    </div>    
+                
             )
         }      
     }

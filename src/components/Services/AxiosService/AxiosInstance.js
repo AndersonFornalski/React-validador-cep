@@ -11,8 +11,7 @@ import authservice from "../../AuthService/authService";
 
     initInstance(){
         this.axiosInstance = axios.create({
-            baseURL:"http://localhost:3010",
-            timeout: 1000 
+            baseURL:"http://localhost:3010"
         });
         this.axiosInstance.interceptors.request.use(
             (config)=>{
@@ -31,4 +30,4 @@ import authservice from "../../AuthService/authService";
     } 
 }
 
-export default new AxiosService;
+export default new AxiosService();

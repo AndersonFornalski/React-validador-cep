@@ -11,14 +11,15 @@ const renderField = ({input, label, type,className,
      <input {...input} type={type} className={className} /> 
      </div>    
      {touched &&
-       ((error && <div className="alert alert-danger">{error}</div>))}
+       ((error && <div className="alert alert-info" style={{"borderRadius":"20px 20px"}}>{error}</div>))}
           
- </div>
+ </div>  
 )
 
 let LoginForm = props => {
   const { handleSubmit, pristine, submitting, submitCb, valid, erros} = props
   return (
+   <div> 
     <form  className="col-md-8" onSubmit={handleSubmit(submitCb)}>
        
         <Field 
@@ -36,7 +37,7 @@ let LoginForm = props => {
         component={renderField} />
 
       <div className="botoes">
-        <button className="btn btn-info" disabled={ !valid || pristine || submitting} >Salvar</button>
+        <button className="btn loginCadastro" disabled={ !valid || pristine || submitting} >Login</button>
       </div>
        {///mostra se senha ou email nao estão cadastrados
           erros.length > 0 &&
@@ -45,11 +46,25 @@ let LoginForm = props => {
           </div>
         }
     </form>
+    </div>
   )
+}
+
+
+const validate = values =>{
+  const errors = {}
+
+  if(!values.email){
+      errors.email = "* Por favor insira um e-mail válido"
+  }
+
+  return errors;
+
 }
 
 LoginForm = reduxForm({
   form: 'loginForm',
+  validate
 })(LoginForm)
 
 export default LoginForm;

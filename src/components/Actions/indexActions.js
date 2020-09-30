@@ -1,7 +1,9 @@
 import { 
          FETCH_PRODUTOS_ID,
          FETCH_PRODUTOS_SUCCESS,
-         FETCH_PRODUTOS_BY_ID_SUCCESS } from "./types"
+         FETCH_PRODUTOS_BY_ID_SUCCESS,
+         UPDATE_PRODUTO_SUCCESS,
+         UPDATE_PRODUTO_FAIL } from "./types"
 import axios from "axios";
 import axiosService from "../Services/AxiosService/AxiosInstance";
 
@@ -66,6 +68,18 @@ const fetchProdutoByIdSuccess =(produto)=>{
     }
 }
 
+const updateProdutoSuccess = (updateProduto)=>{   
+    return{
+        type: UPDATE_PRODUTO_SUCCESS,
+        produto: updateProduto
+    }
+}
+const updateProdutoFail = (errors)=>{
+    return{
+        type: UPDATE_PRODUTO_FAIL,
+        errors
+    }
+}
 
 export const fetchProdutos =()=>{
     return (dispatch) => {
@@ -89,18 +103,51 @@ export const fetchProdutosId =(produtoId)=>{
 }
 
 export const salvandoProduto =(prodData)=>{
-    return axiosInstance.post("http://localhost:3010/produto/v2", {...prodData}).then(
+    return axiosInstance.post("/produto/v2", {...prodData}).then(
         res => res.data,
         err => Promise.reject(err.response.data.errors)
         )
 }
 
-export const fetchDeleteProdutos =()=>{
-    return (dispatch) => {
-        axios.delete("http://localhost:3010/produto")
-        .then(res => res.data)
-        .then(produtos =>{
-            dispatch(fetchProdutosSuccess(produtos))
-        })
-    }
+/////TESTE EDIÇÃO/////
+
+
+export const editandoProduto = (id, produtoData)=> dispatch=> {
+    return axiosInstance.patch(`/produto/v2/${id}`, produtoData)
+    .then(res => res.data )
+    .then(updateProduto =>{
+        dispatch(updateProdutoSuccess(updateProduto));
+    })
+    .catch(({response})=> dispatch(updateProdutoFail(response.data.errors)));
 }
+
+
+
+export const updateProduto = (id, produtoData)=> dispatch=> {
+    return axiosInstance.patch(`/produto/update/${id}`, produtoData)
+    .then(res => res.data )
+    .then(updateProduto =>{
+        dispatch(updateProdutoSuccess(updateProduto));
+    })
+    .catch(({response})=> dispatch(updateProdutoFail(response.data.errors)));
+}
+
+
+
+
+//esse função fas a listagem somente dos dados salvos de cada usuario logado
+export const getUserProduto =()=>{
+    return axiosInstance.get("/produto/manage").then(
+        res => res.data,
+        err => Promise.reject(err.response.data.errors)
+        )
+}
+
+
+export const ExcluirProduto =(prodId)=>{
+    return axiosInstance.delete(`/produto/v2/${prodId}`).then(
+        res => res.data,
+        err => Promise.reject(err.response.data.errors)
+        )
+}
+

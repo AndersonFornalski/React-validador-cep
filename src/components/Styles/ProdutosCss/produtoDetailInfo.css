@@ -1,0 +1,31 @@
+@import "~react-image-gallery/styles/css/image-gallery.css";
+
+.anuncio{
+    margin-top: 20px;
+    color: white;
+    background-color: purple;
+}
+.anuncio:hover{
+    color:white;
+    border-color: blue;
+}
+
+
+.titulo{
+    margin-top: 20px;
+    font-size: 25px;
+}
+.valor{
+    margin-top: 20px;
+}
+.descricao{
+    margin-top: 30px;
+    font-size: 20px;
+}
+.cidade{
+    margin-top: 30px;
+}
+
+.galeriaImagens{
+    background-color:whitesmoke;
+}

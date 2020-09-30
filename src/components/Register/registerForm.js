@@ -49,7 +49,7 @@ const RegisterForm = props => {
         component={renderField} />
 
       <div className="botoes">
-        <button className="btn btn-info" disabled={ !valid || pristine || submitting} >Salvar</button>
+        <button className="btn loginCadastro" disabled={ !valid || pristine || submitting} >Cadastrar Usuário</button>
       </div>
         {///mostra se ja existe usuario cadastrado
           erros.length > 0 &&
@@ -78,7 +78,7 @@ const validate = values =>{
         errors.email ="ex: seunome@gmail.com"
     }
 
-    if(!values.senha ){
+    if(!values.senha ){ 
         errors.senha = "senha deve conter no mínimo 6 caracteres! para maior segurança inclua letras, numeros, caracteres especiais, etc.."
     }
     if(values.senha && values.senha.length < 6 ){

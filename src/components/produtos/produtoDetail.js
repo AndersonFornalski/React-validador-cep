@@ -1,12 +1,12 @@
 import React from "react";
 import * as actions from "../Actions/indexActions"
 import { connect } from "react-redux";
-import { ProdutoDetailInfo } from "./produtoDetailInfo";
+import  ProdutoDetailInfo  from "./produtoDetailInfo";
 import ProdutoDetailUpdate from "../produtos/produtoDetailUpdate";
 
 class produtoDetail extends React.Component{
 
-    componentWillMount(){
+    componentDidMount(){
         const produtoId = this.props.match.params.id;
         this.props.dispatch(actions.fetchProdutosId(produtoId));
     }
@@ -14,33 +14,23 @@ class produtoDetail extends React.Component{
     ifUpdateOrListProduct(prods){ 
         const { isUpdate } = this.props.location.state || false
 
-        return isUpdate ? <ProdutoDetailUpdate produtosinhos={prods}/>
-                        : <ProdutoDetailInfo produtosinhos={prods}/>             
+        return isUpdate ? <ProdutoDetailUpdate dispatch={this.props.dispatch} product={prods}/>
+                        : <ProdutoDetailInfo product={prods}/>             
     }
 
     render(){
         const prods = this.props.produto;
 
-        if(!prods._id){
+        if(prods._id){
             return(                
-                <div className="row" style={{"marginLeft":"5px", "marginBottom":"10px"}}>
-                     <div className="col">
-                        <h1 style={{"color":"red"}}>LADO ESQUERDO</h1>  
-                            {this.ifUpdateOrListProduct(prods)}
-                       {/* <ProdutoDetailInfo produtosinhos={prod}/> */}                        
-                     </div>
-    
-                     <div className="col">
-                        <h1  style={{"color":"red"}}>LADO DIREITO</h1>
-                        <img src={prods.imagem} style={{"width":"400px"}}/>
-                     </div>
-    
+                <div>
+                      {this.ifUpdateOrListProduct(prods)}
                 </div>
             )
         }  else{
             return(
-                <div>
-                    <h1>Loading...</h1>
+                <div className="col">
+                    <h3>Loading...</h3>
                 </div>
             )
         }

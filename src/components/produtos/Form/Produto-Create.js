@@ -22,32 +22,23 @@ export default class ProdutoCreate extends React.Component{
                   errors => this.setState({errors}))
     }   
 
-    render(){
-
+    render(){ 
+ 
         if(this.state.redirect){
             return <Redirect to={{pathname:"/produto"}}></Redirect>
         }
 
         return(
             <section id="newProd">
-            <div className="form">
-                <div className="row">
-                    <div className="col-md-5">
-                        <h1 className="page-title">Cadastre seu Produto</h1>
-
-                         <ProdutoForm submitCb={this.criarProduto}
-                                      erros={this.state.errors}/> 
-
-                        </div>       
-                            <div className="col-md-6 ml-auto"> 
-                                <div className="image-container">
-                                <h2 className="catchphrase">Hundreds anwome places in reach of few clicks.</h2>
-                                <img src=""></img>
-                        </div>
+                <div className="form">
+                    <div className="col-md-12">
+                            <h1 className="page-title" style={{"color":"orange"}}>Cadastre seu Produto</h1>
+                                <ProdutoForm submitCb={this.criarProduto}
+                                            erros={this.state.errors}/> 
+                               
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
         )
     }
 }

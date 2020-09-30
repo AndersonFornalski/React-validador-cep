@@ -36,15 +36,17 @@ export class App extends React.Component {
       <BrowserRouter>
       <div className="App">
         <Header encerrarSecao={this.logout}></Header>  
-        <switch>            
+        
+        <div className="col">
           <Route exact path="/" render={()=> <Redirect to="/produto"/>}></Route>
           <Route exact path="/produto" component={ProdutoLista}></Route>
-          <ProtectedRoute exact path="/produto/:id" component={produtoDetail}/>
+          <Route exact path="/produto/:id" component={produtoDetail}/>
           <ProtectedRoute exact path="/novo_produto" component={ProdutoCreate}/>
           <Route exact path="/login" component={Login}></Route>
           <LogeedInRoute exact path="/register" component={Register}/>          
-          <ProtectedRoute exact path="/manage" component={ProdutoManage}/>
-          </switch>
+          <ProtectedRoute exact path="/update" component={ProdutoManage}/>
+        </div>
+
       </div>
       </BrowserRouter>
       </Provider>

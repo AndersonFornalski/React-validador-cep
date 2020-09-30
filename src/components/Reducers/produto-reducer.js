@@ -1,14 +1,18 @@
 import { FETCH_PRODUTOS_ID,
          FETCH_PRODUTOS_SUCCESS,
-         FETCH_PRODUTOS_BY_ID_SUCCESS  } from "../Actions/types";
+         FETCH_PRODUTOS_BY_ID_SUCCESS,  
+         UPDATE_PRODUTO_FAIL,
+         UPDATE_PRODUTO_SUCCESS} from "../Actions/types";
 
 const INITIAL_STATE = {
     produtos:{
-        data:[]
+        data:[],
+        errors: []
     },
 
     produto:{
-        data:{}
+        data:{},
+        errors: []
     }
 }
 
@@ -27,6 +31,10 @@ export const produtoReducerId = (state = INITIAL_STATE.produto, action)=>{
             return {...state, data:{}}
         case FETCH_PRODUTOS_BY_ID_SUCCESS:
             return Object.assign({}, state, {data: action.produto});
+        case UPDATE_PRODUTO_SUCCESS:
+            return{...state, data: action.produto};
+        case UPDATE_PRODUTO_FAIL:
+                return{...state, errors: action.errors};
           default:
             return state;
     }

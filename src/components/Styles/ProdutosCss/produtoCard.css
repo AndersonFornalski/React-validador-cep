@@ -1,5 +1,14 @@
+.listaProd{
+    margin-left: 10px;
+}
+
 .card{
     width: 18rem;
     margin-bottom: 15px;
-    margin-left: 10px;
+}
+.btn{
+    color: blue;
+}
+.btn:hover{
+    color: purple;
 }

@@ -10,15 +10,14 @@ import * as actions from "../Actions/indexActions";
         return this.props.listaProdutos.map((lista, index)=>{
             console.log(lista)
             return(
-                <ProdutoCard key={index}  
-                             colName="card"
-                             produto={lista}>
-                </ProdutoCard>
+                    <ProdutoCard key={index}  
+                                produto={lista}>
+                    </ProdutoCard>
             )
         })
     }
 //AQUI FAZ A LISTAGEM COM O REDUCER E ACTIONS
-    componentWillMount(){
+    componentDidMount(){
         this.props.dispatch(actions.fetchProdutos());
     }
 

@@ -1,0 +1,66 @@
+.cardUpdate{
+    margin-left: 20px;
+}
+
+
+
+.linkLista{
+    color: white;
+    background-color: orange;
+    border-color: orangered;
+    border-radius: 30px 30px;
+}
+.linkLista:hover{
+    color: white;
+    background-color:red;
+    border-color: orange;    
+}
+
+
+.editar{
+    color: white;
+    background-color: orange;
+    border-color: orangered;
+    border-radius: 30px 30px;
+}
+.editar:hover{
+    color: white;
+    background-color:red;
+    border-color: orange; 
+}
+
+.excluir{
+    color: white;
+    background-color:rgb(108, 20, 223);
+    border-color: orange;
+    border-radius: 30px 30px;
+}
+.excluir:hover{
+    color: white;
+    background-color:maroon;
+    
+}
+
+.yes{
+    color: white;
+    background-color: orange;
+    border-color: orangered;
+    border-radius: 20px 10px 20px;
+}
+.yes:hover{
+    color: white;
+    border-radius: 20px 10px 20px;
+    background-color: orangered;
+
+}
+.not{
+    margin-left: 10px;
+    color: white;
+    background-color: orange;
+    border-color: orangered;
+    border-radius: 10px 20px 10px;
+}
+.not:hover{
+    color: white;
+    background-color:rgb(108, 20, 223);
+}

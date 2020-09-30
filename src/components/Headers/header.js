@@ -23,10 +23,12 @@ import "../Styles/Headers/headers.css";
 
     render(){
         return(
-            <nav className="navbar navbar-expand-lg bg-light">
-            <a className="navbar-brand" href="/">F-jobs</a>
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span className="navbar-toggler-icon"></span>
+            <nav className="navbar navbar-expand-lg bg-dark">
+            <a  className="navbar-brand header" href="/"> 
+                <img className="icon" src={process.env.PUBLIC_URL + "img/icon/iconShop.png"}/> Compra&Venda.com</a>
+
+            <button className="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon" style={{"color":"blue"}}>|||</span>
             </button>
             
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -36,39 +38,35 @@ import "../Styles/Headers/headers.css";
                   <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
                 </li>
 
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <li className="nav-item dropdown">
+                  <a className="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Produtos
                   </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/">Produtos</a>
-                    <a class="dropdown-item" href="/novo_produto">Cadastro de Produtos</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="/manage">Atualizar Seus Produtos</a>
+                  <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a className="dropdown-item" href="/novo_produto">Cadastre Seu Anúncio</a>
+                    <div className="dropdown-divider"></div>
+                    <a className="dropdown-item" href="/update">Atualizar Seus Produtos</a>
                   </div>
-                </li>
-            
-                <li className="nav-item">
-                  <a className="nav-link " href="/">Produtos</a>
                 </li>
 
                 <li className="nav-item">
-                  <a className="nav-link " href="/manage">Update</a>
+                  <a className="nav-link " href="/update">Update</a>
                 </li>            
           
                
               </ul>
               <form className="form-inline my-2 my-lg-0">
-                <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-                <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <input className="form-control mr-sm-2"  placeholder="Pesquisar" aria-label="Search"/>
               </form>
-                    <a style={{"color":"purple"}} className="nav-link" > {this.props.auth.nomeUsuario}</a>
+                        <div style={{"color":"orange"}} 
+                         className="nav-link">
+                         <strong> {this.props.auth.nomeUsuario} </strong>
+                         </div>
 
               <ul className="navbar-nav mr-auto">
                       {this.LogoutAuthButton()}
-                </ul>
-          
-            </div>
+                </ul>          
+                  </div>
             </nav>
             
         )
