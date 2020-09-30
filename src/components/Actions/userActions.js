@@ -8,7 +8,7 @@ import { LOGIN_SUCCESS,
 
 
 export const Register =(userD)=>{
-   return axios.post("http://localhost:3010/user/register", {...userD}).then(
+   return axios.post("https://comprevenda-backend.herokuapp.com/user/register", {...userD}).then(
    res => res.data,
    err => Promise.reject(err.response.data.errors)
    )
@@ -46,7 +46,7 @@ export const checkAuthState =()=>{
 
 export const Login = (userD)=>{
     return dispatch =>{
-        return axios.post("http://localhost:3010/user/auth", {...userD})
+        return axios.post("https://comprevenda-backend.herokuapp.com/user/auth", {...userD})
         .then(res => res.data)
         .then(token =>{
             authService.saveToken(token);

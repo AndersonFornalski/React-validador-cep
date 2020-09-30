@@ -94,7 +94,7 @@ export const fetchProdutos =()=>{
 export const fetchProdutosId =(produtoId)=>{
     return function (dispatch){
         dispatch(fetchProdutoByIdInit());
-        axios.get(`http://localhost:3010/produto/${produtoId}`)
+        axios.get(`https://comprevenda-backend.herokuapp.com/produto/${produtoId}`)
         .then(res => res.data)
         .then(prod =>{
             dispatch(fetchProdutoByIdSuccess(prod))
