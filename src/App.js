@@ -12,6 +12,7 @@ import { ProtectedRoute } from './components/Shared/ProtectedRoute/ProtectedRout
 import { LogeedInRoute } from './components/Shared/ProtectedRoute/LogeedInRoute';
 import ProdutoManage from './components/Update/ProdutoManage';
 import ProdutoCreate from './components/produtos/Form/Produto-Create';
+import ListaProdFake from './components/produtos/prodFakeLista';
 
  const store = require("./components/Reducers").init();
 
@@ -45,6 +46,8 @@ export class App extends React.Component {
           <Route exact path="/login" component={Login}></Route>
           <LogeedInRoute exact path="/register" component={Register}/>          
           <ProtectedRoute exact path="/update" component={ProdutoManage}/>
+          <Route exact path="/listaprodfake" component={ListaProdFake}/>
+
         </div>
 
       </div>

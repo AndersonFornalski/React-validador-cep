@@ -66,7 +66,7 @@ const fetchProdutoByIdSuccess =(produto)=>{
         type: FETCH_PRODUTOS_BY_ID_SUCCESS,
         produto
     }
-}
+} 
 
 const updateProdutoSuccess = (updateProduto)=>{   
     return{

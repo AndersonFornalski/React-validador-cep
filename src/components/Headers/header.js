@@ -28,7 +28,7 @@ import "../Styles/Headers/headers.css";
                 <img className="icon" src={process.env.PUBLIC_URL + "img/icon/iconShop.png"}/> Compra&Venda.com</a>
 
             <button className="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon" style={{"color":"blue"}}>|||</span>
+                <span className="navbar-toggler-icon" style={{"color":"blue"}}> &#9783; </span>
             </button>
             
             <div className="collapse navbar-collapse" id="navbarSupportedContent">

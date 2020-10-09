@@ -3,14 +3,16 @@ import { Link } from "react-router-dom";
 import "../Styles/produtoManager/produtoManageCard.css"
 import { preferenciaData } from "../Shared/Helpers/helpers";
 
+
 export default class ProdutoManageCard extends React.Component{
     constructor(){
         super();
 
         this.state={
-            querExcluir: false 
+            querExcluir: false, 
         }
     }
+
 
     showDeleteMenu(){
         this.setState({querExcluir: true})
@@ -22,7 +24,7 @@ export default class ProdutoManageCard extends React.Component{
 
       render(){  
           
-          const{ produto, excluiProduto, prodIndex } = this.props    
+          const{ produto, excluiProduto, prodIndex, review } = this.props    
           const{ querExcluir } = this.state
         
             return(                      
@@ -30,6 +32,9 @@ export default class ProdutoManageCard extends React.Component{
                     <div className="cardUpdate">
                      
                         <div className="card text-center">
+                                {
+                                    review && review()
+                                }
                             <div className="card-body">
                                 <img src={produto.image} style={{"width":"200px"}} />
 
@@ -52,9 +57,11 @@ export default class ProdutoManageCard extends React.Component{
                                             <button onClick={()=>{excluiProduto(produto._id, prodIndex)}} id="btn-yes"  className="btn yes">Sim</button>
                                             <button onClick={()=> this.closeDeleteMenu()} id="btn-not" className="btn not">Não</button>
                                         </div>
-                                }                  
-                            </div>    
+                                }   
+                            </div>  
+                                                                                                    
                         </div>
+                                
                     </div>    
                 
             )

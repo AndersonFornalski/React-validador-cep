@@ -2,6 +2,7 @@ import React from "react"
 import ImageGallery from 'react-image-gallery';
 import { Link } from "react-router-dom";
 import { createNumberMask, createTextMask } from "redux-form-input-masks"
+
 import "../Styles/ProdutosCss/produtoDetailInfo.css"
 
 export default class ProdutoDetailInfo extends React.Component{ 
@@ -148,11 +149,6 @@ export default class ProdutoDetailInfo extends React.Component{
 
 
     
-
-    
-     
-    
-    
              </div>
     
     
@@ -169,3 +165,4 @@ export default class ProdutoDetailInfo extends React.Component{
 
     
 }
+

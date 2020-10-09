@@ -3,7 +3,7 @@ import ProdutoCard from "./produtoCard"
 import { connect } from "react-redux";
 
 import * as actions from "../Actions/indexActions";
-
+ 
  class ProdutoLista extends React.Component{
   
     listagemProdutos(){
@@ -13,8 +13,8 @@ import * as actions from "../Actions/indexActions";
                     <ProdutoCard key={index}  
                                 produto={lista}>
                     </ProdutoCard>
-            )
-        })
+            )                                                                                           
+        }) 
     }
 //AQUI FAZ A LISTAGEM COM O REDUCER E ACTIONS
     componentDidMount(){

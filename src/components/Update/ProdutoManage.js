@@ -2,6 +2,7 @@ import React from "react";
 import * as actions from "../Actions/indexActions"
 import ProdutoManageCard from "./ProdutoManageCard";
 import { Link } from "react-router-dom";
+import ReviewModal from "../Review/ReviewModal";
 
 export default class ProdutoManage extends React.Component{
     constructor(){
@@ -32,7 +33,8 @@ export default class ProdutoManage extends React.Component{
                 <ProdutoManageCard key={index}
                                 produto={prod}
                                 prodIndex={index}
-                                excluiProduto={this.deleteProduto}/> )    
+                                excluiProduto={this.deleteProduto}
+                                review={()=> <ReviewModal/> }/> )    
         }
     
     deleteProduto(prodId, prodIndex){ 
