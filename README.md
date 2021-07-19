@@ -6,12 +6,12 @@ Este projeto foi desenvolvido usando
 
 ## Scripts 
 
-Fazer git clone
-Salvar em sua pasta
-fazer um npm i
-rodar npm start para rodar o projeto
+Fazer git clone <br />
+Salvar em sua pasta <br />
+fazer um npm i <br />
+rodar npm start para rodar o projeto <br />
 
-No diretório do projeto, você pode executar:
+No diretório do projeto, você pode executar: <br />
 
 ### `npm start`
 
