@@ -1,8 +1,8 @@
 Este projeto foi desenvolvido usando
 
-.React no front-end
-.NodeJs no back-end
-.MongoDb no banco de dados
+.React no front-end <br />
+.NodeJs no back-end <br />
+.MongoDb no banco de dados <br />
 
 ## Scripts 
 
