@@ -19,11 +19,11 @@ class Login extends React.Component{
 
 
     render(){
-        const{isAuth, errors} = this.props.auth;
+        const{ isAuth, errors } = this.props.auth;
         const{ registradoComSucesso } = this.props.location.state || false;    
         
         if(isAuth){
-            return <Redirect to={{pathname:"/produto"}}/>
+            return <Redirect to={{pathname:"/cidade"}}/>
         }
 
         return(
@@ -35,14 +35,14 @@ class Login extends React.Component{
                         {
                             registradoComSucesso &&
                                 <div className="alert alert-success">
-                                    <p>Registrado com sucesso por favor faça seu login </p>  
+                                    <small> PARABENS !! SEU CADASTRO FOI REALIZADO, POR FAVOR FACA SEU LOGIN </small>  
                                 </div>
                         }
                     <LoginForm submitCb={this.loginUsuario} erros={errors}/>
                 </div>
 
                 <div className="col">
-                    <img src={process.env.PUBLIC_URL + "img/icon/capa1.png"} style={{"width":"100%"}} />
+                    <i className="fas fa-edit"></i>
                 <br/>
                 <br/>
                 </div>

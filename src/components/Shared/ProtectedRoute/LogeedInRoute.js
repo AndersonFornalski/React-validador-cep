@@ -8,7 +8,7 @@ export function LogeedInRoute(props) {
 
         return(
             <Route {...rest}render={(props) => authService.isAuthenticated()
-                                                    ? <Redirect to={{pathname:"/produto"}}/>
+                                                    ? <Redirect to={{pathname:"/cidade"}}/>
                                                     : <Component{...props} {...rest}/>}>
             </Route>                                                
         )

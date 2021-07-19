@@ -35,9 +35,9 @@ class AuthService{
     }
 
 
-   //para display nome do usuario na tela de produtos.
-   //OBS: não esquecer de acrescentar no authReducer o nome da variavel nomeUsuario
-   //e acrescentar no case LOGIN_SUCESS a variavel nomeUsuario
+   /****Aqui aparece o nome do usuario no tela HOME.
+        OBS: Acrescentar no authReducer o nome da variavel nomeUsuario
+        e acrescentar no case LOGIN_SUCESS a variavel nomeUsuario **/
     getNomeUsuario(){
         return this.decode(this.getToken()).nomeUsuario;
     }

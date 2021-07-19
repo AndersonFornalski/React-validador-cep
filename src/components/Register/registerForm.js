@@ -1,6 +1,5 @@
 import React from 'react'
 import { Field, reduxForm} from 'redux-form'
-import "../Styles/users/registerForm.css"
 
 const renderField = ({input, label, type,className,
     meta: { touched, error}
@@ -19,7 +18,7 @@ const renderField = ({input, label, type,className,
 const RegisterForm = props => {
   const { handleSubmit, pristine, submitting, submitCb, valid, erros } = props
   return (
-    <form  className="col-md-8" onSubmit={handleSubmit(submitCb)}>
+    <form  className="formRegist" onSubmit={handleSubmit(submitCb)}>
         <Field 
          name="nomeUsuario"
          type="text" 

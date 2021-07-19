@@ -11,7 +11,7 @@ import authservice from "../../AuthService/authService";
 
     initInstance(){
         this.axiosInstance = axios.create({
-            baseURL:"https://comprevenda-backend.herokuapp.com"
+            baseURL:"http://localhost:3010"
         });
         this.axiosInstance.interceptors.request.use(
             (config)=>{

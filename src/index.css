@@ -11,3 +11,110 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/**HEADER**/
+.nav-link{
+  border-left: 1px solid silver;
+}
+/**CIDADE FORM****/
+.form{
+  color: purple;
+}
+
+.botaoSalvar{
+  margin-top: 20px;
+  margin-bottom: 100px;
+  border-radius: 40px 40px; 
+}
+
+.btnCadCep{
+  color: white;
+  border-radius: 20px 20px;
+  background-color:slateblue;
+}
+.btnCadCep:hover{
+  color: white;
+  border-radius: 20px 20px;
+  background-color:rgb(43, 248, 36);
+}
+.infoRegistro{
+  color: orange;
+  margin-bottom: 5%;
+  margin-top: 20px;
+}
+
+/**PRODUTO CARD*/
+.listaProd{
+  margin-left: 20px;
+  padding: 10px ;    
+}
+.listaProd:hover{
+  box-shadow: 0 0 5px rgb(24, 37, 5);
+}
+.card{
+  width: 12rem;
+}
+.btn{
+  color:dimgrey;
+  background-color: rgb(247, 210, 3);
+  font-weight: bold;
+
+}
+.btn:hover{
+  color: rgb(39, 7, 39);
+  font-weight: bold;
+  
+}
+
+/***HEADER***/
+.login{
+  margin-left: 20px;
+  font-size: 18px;
+}
+.logout{
+  margin-left: 20px;
+  font-size: 18px;
+}
+
+.icon{
+  width: 25px;
+}
+
+.header{
+  font-size: 24px;
+}
+
+/**REGISTER FORM**/
+.formRegist{
+  width: 400px;
+  justify-content: center;
+  color: darkorange;
+  margin-top: 30px;
+}
+
+.botoes{
+  text-align: left;
+  margin-top: 10px;
+}
+.btn-primary{
+  margin-left: 20px;
+}
+
+.loginCadastro{
+  color: white;
+  border-radius: 20px 20px;
+  background-color:rgb(41, 21, 167);
+}
+.loginCadastro:hover{
+  color: white;
+  border-radius: 20px 20px;
+  background-color:orangered;
+}
+
+/**LISTA***/
+.title-lista{
+  text-align: center;
+  padding: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+}

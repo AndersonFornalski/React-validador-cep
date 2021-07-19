@@ -1,5 +1,5 @@
 {
-  "name": "f-job-front-end",
+  "name": "front-validador-cep",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -21,7 +21,8 @@
     "redux": "^4.0.5",
     "redux-form": "^8.3.6",
     "redux-form-input-masks": "^2.0.1",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "remask": "0.1.0-alpha.5"
   },
   "scripts": {
     "start": "react-scripts start",

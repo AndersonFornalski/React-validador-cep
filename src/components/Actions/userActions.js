@@ -1,20 +1,7 @@
+import { LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT } from "./types";
 import axios from "axios";
 import authService from "../AuthService/authService";
-
-
-import { LOGIN_SUCCESS,
-         LOGIN_FAILURE, 
-         LOGOUT } from "./types";
-
-
-export const Register =(userD)=>{
-   return axios.post("https://comprevenda-backend.herokuapp.com/user/register", {...userD}).then(
-   res => res.data,
-   err => Promise.reject(err.response.data.errors)
-   )
-}
-
-
+import { Api } from "../Config/Api";
 
 const loginSuccess = ()=>{
     const nomeUsuario = authService.getNomeUsuario();
@@ -35,7 +22,6 @@ export const logout =()=>{
         type:LOGOUT
     }
 }
-
 export const checkAuthState =()=>{
     return dispatch =>{
         if(authService.isAuthenticated()){
@@ -44,9 +30,18 @@ export const checkAuthState =()=>{
     }
 }
 
+//AQUI REGISTRA NOVO USUARIO
+export const Register =(userD)=>{
+   return axios.post(`${Api}/user/register`, {...userD}).then(
+   res => res.data,
+   err => Promise.reject(err.response.data.errors)
+   )
+}
+
+//AQUI FAZ LOGIN COM O NOVO USUARIO
 export const Login = (userD)=>{
     return dispatch =>{
-        return axios.post("https://comprevenda-backend.herokuapp.com/user/auth", {...userD})
+        return axios.post(`${Api}/user/auth`, {...userD})
         .then(res => res.data)
         .then(token =>{
             authService.saveToken(token);
